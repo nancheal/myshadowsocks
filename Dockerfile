@@ -31,7 +31,7 @@ RUN apk upgrade --update \
         udns-dev \
         tar \
         git \
-    && useradd -d /home/noroot -m -s /bin/bash noroot USER noroot \
+    && adduser -d /home/noroot -m -s /bin/bash noroot USER noroot \
     && curl -sSLO ${SS_DOWNLOAD_URL} \
     && tar -zxf shadowsocks-libev-${SS_LIBEV_VERSION}.tar.gz \
     && (cd shadowsocks-libev-${SS_LIBEV_VERSION} \
@@ -60,7 +60,7 @@ RUN apk upgrade --update \
         shadowsocks-libev-${SS_LIBEV_VERSION}.tar.gz \
         shadowsocks-libev-${SS_LIBEV_VERSION} \
         simple-obfs \
-        /var/cache/apk/* \
+        /var/cache/apk/* 
 
 ADD entrypoint.sh /entrypoint.sh
 
