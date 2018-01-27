@@ -61,6 +61,8 @@ RUN apk upgrade --update \
         simple-obfs \
         /var/cache/apk/*
 
+RUN useradd -d /home/noroot -m -s /bin/bash noroot USER noroot
+
 ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
