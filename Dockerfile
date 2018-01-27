@@ -59,9 +59,8 @@ RUN apk upgrade --update \
         shadowsocks-libev-${SS_LIBEV_VERSION}.tar.gz \
         shadowsocks-libev-${SS_LIBEV_VERSION} \
         simple-obfs \
-        /var/cache/apk/*
-
-RUN useradd -d /home/noroot -m -s /bin/bash noroot USER noroot
+        /var/cache/apk/* \
+    && useradd -d /home/noroot -m -s /bin/bash noroot USER noroot
 
 ADD entrypoint.sh /entrypoint.sh
 
