@@ -31,7 +31,7 @@ RUN apk upgrade --update \
         udns-dev \
         tar \
         git \
-    && adduser -d /home/noroot -m -s /bin/bash noroot USER noroot \
+    && adduser -h /home/noroot -s /bin/bash noroot xxx noroot \
     && curl -sSLO ${SS_DOWNLOAD_URL} \
     && tar -zxf shadowsocks-libev-${SS_LIBEV_VERSION}.tar.gz \
     && (cd shadowsocks-libev-${SS_LIBEV_VERSION} \
