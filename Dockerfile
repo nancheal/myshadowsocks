@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-LABEL maintainer="nancheal"
+LABEL maintainer="nancheal@"
 
 ARG TZ='Asia/Shanghai'
 
