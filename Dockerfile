@@ -68,3 +68,5 @@ RUN chmod +x /entrypoint.sh
 RUN adduser -D -h /home/noroot -u 1000 -s /bin/bash noroot
 
 USER noroot
+
+ENTRYPOINT ["/entrypoint.sh"]
