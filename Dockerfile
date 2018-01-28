@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-LABEL maintainer="mritd <mritd1234@gmail.com>"
+LABEL maintainer="nancheal"
 
 ARG TZ='Asia/Shanghai'
 
@@ -31,7 +31,6 @@ RUN apk upgrade --update \
         udns-dev \
         tar \
         git \
-    && adduser -h /home/noroot -s /bin/bash noroot xxx noroot \
     && curl -sSLO ${SS_DOWNLOAD_URL} \
     && tar -zxf shadowsocks-libev-${SS_LIBEV_VERSION}.tar.gz \
     && (cd shadowsocks-libev-${SS_LIBEV_VERSION} \
@@ -64,4 +63,8 @@ RUN apk upgrade --update \
 
 ADD entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN chmod +x /entrypoint.sh
+
+RUN adduser -D -h /home/noroot -u 1000 -s /bin/bash noroot
+
+USER noroot
